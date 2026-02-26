@@ -39,7 +39,7 @@ final class HealthKitViewModel: ObservableObject {
         )
 
         let result = try await descriptor.result(for: healthStore)
-        let count = result.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0
+        let count = result?.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0
         todaySteps = NumberFormatter.localizedString(from: NSNumber(value: Int(count)), number: .decimal)
     }
 }
