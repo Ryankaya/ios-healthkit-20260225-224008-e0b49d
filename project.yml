@@ -1,0 +1,33 @@
+name: ios-healthkit-20260225-224008-e0b49d
+options:
+  minimumXcodeGenVersion: 2.38.0
+  deploymentTarget:
+    iOS: 17.0
+settings:
+  base:
+    PRODUCT_BUNDLE_IDENTIFIER: com.ryankaya.ios-healthkit-20260225-224008-e0b49d
+    SWIFT_VERSION: 5.0
+targets:
+  ios-healthkit-20260225-224008-e0b49d:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+    settings:
+      base:
+        INFOPLIST_FILE: Sources/ios-healthkit-20260225-224008-e0b49d/Info.plist
+        PRODUCT_NAME: ios-healthkit-20260225-224008-e0b49d
+        TARGETED_DEVICE_FAMILY: 1,2
+        CODE_SIGN_STYLE: Automatic
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+    info:
+      path: Sources/ios-healthkit-20260225-224008-e0b49d/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        NSHealthShareUsageDescription: This app reads your step count to demonstrate HealthKit queries.
+        NSHealthUpdateUsageDescription: This demo can optionally write workout-related samples in future iterations.
+    scheme:
+      testTargets: []
