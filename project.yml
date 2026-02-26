@@ -19,6 +19,7 @@ targets:
         PRODUCT_NAME: ios-healthkit-20260225-224008-e0b49d
         TARGETED_DEVICE_FAMILY: 1,2
         CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: Sources/ios-healthkit-20260225-224008-e0b49d/ios-healthkit-20260225-224008-e0b49d.entitlements
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 1.0
     info:

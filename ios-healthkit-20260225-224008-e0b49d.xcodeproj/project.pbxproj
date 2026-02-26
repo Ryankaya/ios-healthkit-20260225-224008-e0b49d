@@ -15,6 +15,7 @@
 		4C83C2856948759050A00700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		84C0105FEEF76B61201BA985 /* ios-healthkit-20260225-224008-e0b49dApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ios-healthkit-20260225-224008-e0b49dApp.swift"; sourceTree = "<group>"; };
 		D03ED72C41270A08D2628FA5 /* ios-healthkit-20260225-224008-e0b49d.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "ios-healthkit-20260225-224008-e0b49d.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2D04FA663D5A9D39BE5664 /* ios-healthkit-20260225-224008-e0b49d.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ios-healthkit-20260225-224008-e0b49d.entitlements"; sourceTree = "<group>"; };
 		EE973B5554AEE223402C42F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +41,7 @@
 			children = (
 				EE973B5554AEE223402C42F5 /* ContentView.swift */,
 				4C83C2856948759050A00700 /* Info.plist */,
+				EE2D04FA663D5A9D39BE5664 /* ios-healthkit-20260225-224008-e0b49d.entitlements */,
 				84C0105FEEF76B61201BA985 /* ios-healthkit-20260225-224008-e0b49dApp.swift */,
 			);
 			path = "ios-healthkit-20260225-224008-e0b49d";
@@ -123,6 +125,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Sources/ios-healthkit-20260225-224008-e0b49d/ios-healthkit-20260225-224008-e0b49d.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -142,6 +145,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Sources/ios-healthkit-20260225-224008-e0b49d/ios-healthkit-20260225-224008-e0b49d.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

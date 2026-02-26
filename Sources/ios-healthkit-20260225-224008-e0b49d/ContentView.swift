@@ -71,9 +71,9 @@ enum HealthAuthorizationState: Equatable {
         case .requesting:
             return "Waiting for user authorization response."
         case .authorized:
-            return "Read access granted for step count."
+            return "Read and update access granted for step count."
         case .denied:
-            return "Grant Health access in Settings to load step data."
+            return "Grant Health read and update access in Settings to load data."
         case .unavailable:
             return "Health data is unavailable on this device."
         case .failed(let message):
@@ -116,7 +116,7 @@ final class HealthKitViewModel: ObservableObject {
         authorizationState = .requesting
 
         do {
-            try await healthStore.requestAuthorization(toShare: [], read: [stepType])
+            try await healthStore.requestAuthorization(toShare: [stepType], read: [stepType])
             updateAuthorizationState()
             if authorizationState == .authorized {
                 await refreshData()
@@ -258,7 +258,11 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 LinearGradient(
-                    colors: [Color.teal.opacity(0.22), Color.cyan.opacity(0.12), Color.white],
+                    colors: [
+                        Color(red: 0.06, green: 0.22, blue: 0.38).opacity(0.38),
+                        Color(red: 0.08, green: 0.48, blue: 0.45).opacity(0.28),
+                        Color(red: 0.90, green: 0.97, blue: 0.95)
+                    ],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
@@ -306,7 +310,14 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background(
+            LinearGradient(
+                colors: [Color.blue.opacity(0.18), Color.teal.opacity(0.14)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
     }
 
     private var accessCard: some View {
@@ -323,8 +334,12 @@ struct ContentView: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
+            Text("Enable both Read and Update for Steps in the permission sheet.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
             HStack(spacing: 10) {
-                Button("Request Access") {
+                Button("Request Read + Update") {
                     Task { await viewModel.requestAccess() }
                 }
                 .buttonStyle(.borderedProminent)
@@ -345,7 +360,14 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(Color.white.opacity(0.85), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background(
+            LinearGradient(
+                colors: [Color.indigo.opacity(0.18), Color.blue.opacity(0.12)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
     }
 
     private var todayCard: some View {
@@ -365,7 +387,14 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(Color.teal.opacity(0.12), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background(
+            LinearGradient(
+                colors: [Color.teal.opacity(0.24), Color.cyan.opacity(0.12)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
     }
 
     private var chartCard: some View {
@@ -417,7 +446,14 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(Color.white.opacity(0.9), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background(
+            LinearGradient(
+                colors: [Color.mint.opacity(0.20), Color.teal.opacity(0.11)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
     }
 }
 
